@@ -1,0 +1,27 @@
+.fw-btn{
+  min-width: 84px;
+  padding: 0 16px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 24px;
+  display: inline-block;
+  text-align: center;
+  background: #EEEEEE;
+  color: #CCCCCC;
+  background-size:84px 48px;
+  transition: background-position .2s;
+  &.actived{
+    background: linear-gradient(90deg, #CAA5FF 0%, #4F8FFF 100%);
+    color: #FFFFFF;
+    background-position: 84px;
+  }
+  &.left {
+    border-radius: 24px 0 0 24px;
+  }
+  &.right{
+    border-radius: 0 24px 24px 0;
+  }
+  &.left&.right{
+    border-radius: 24px;
+  }
+}

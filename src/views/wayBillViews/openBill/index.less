@@ -1,0 +1,686 @@
+@import '../../../less/core.less';
+@images: '../../../assets/images';
+
+// 开单
+.page-open_bill {
+  font-size: 36px;
+  box-sizing: border-box;
+  .flex-y();
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  // 二级路由容器
+  .sub-view_content {
+    position: absolute;
+    z-index: 500;
+    background: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  // 底部固定按钮
+  .page-open_bill_footer {
+    position: relative;
+    .flex-x(flex-start, center);
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    box-sizing: border-box;
+    border-top: 2px solid #F2F1F6;
+
+    .footer-mask {
+      position: fixed;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 100px;
+      background: rgba(0, 0, 0, .5);
+    }
+
+    .cost-popup {
+      width: 100%;
+      position: absolute;
+      left: 0px;
+      bottom: 100px;
+      max-height: 360px;
+      background: #ffffff;
+      transition: height .1s;
+
+
+      .page-cost_info_list {
+        width: 100%;
+        max-height: 360px;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+        background: #ffffff;
+
+        .page-cost_info_item {
+          .flex-x(space-between, center);
+          width: 100%;
+          height: 90px;
+          padding: 0px 30px;
+          box-sizing: border-box;
+          border-bottom: 2px solid @public_line-color;
+
+          .cost-key {
+            font-size: 32px;
+            color: #333333;
+          }
+
+          .cost-number {
+            .flex-x(flex-end, center);
+            font-size: 32px;
+            color: #333333;
+            flex: 1;
+          }
+
+          .cost-unit {
+            font-size: 28px;
+            color: #666666;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+
+    .footer-cost_info {
+      .flex-x(flex-start, center);
+      height: 100px;
+      flex: 1;
+      box-sizing: border-box;
+      padding-left: 30px;
+      background: #ffffff;
+      z-index: 2;
+
+      > div {
+
+        &:nth-of-type(1) {
+          .flex-x(flex-start, center);
+          width: 128px;
+          height: 32px;
+          color: #333333;
+          font-size:32px;
+        }
+
+        &:nth-of-type(2) {
+          .flex-x(flex-start, center);
+          color: @public_active_color;
+          font-size: 40px;
+        }
+
+        &:nth-of-type(3) {
+          .flex-x(flex-start, center);
+          color: @public_active_color;
+          font-size: 28px;
+          margin: 6px 0px 0px 10px;
+        }
+
+        &:nth-of-type(4) {
+          .flex-x(flex-start, center);
+          width: 32px;
+          height: 32px;
+          background: url("@{images}/top_icon.png") no-repeat center center;
+          background-size: cover;
+          margin: 6px 0px 0px 20px;
+          transition: .2s;
+        }
+      }
+
+      .transRoute {
+        transform: rotate(180deg);
+      }
+    }
+
+    .footer-submit {
+      .flex-x(center, center);
+      width: 240px;
+      height: 100px;
+      background: linear-gradient(left, #caa5ff, #4f8fff);
+      font-size: 32px;
+      color: #ffffff;
+      z-index: 2;
+    }
+  }
+
+  // 开单内容主体
+  .page-open_bill_content {
+    width: 100%;
+    flex: 1;
+    padding: 0px 30px;
+    box-sizing: border-box;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    // 运单号输入部分 && 二维码扫描
+    .page-wayBill_number {
+      .flex-x(flex-start, center);
+      input {
+        height: 50px;
+        width: 500px;
+        text-align: right;
+        font-size: 28px;
+        border: none;
+        background: #ffffff;
+      }
+      .page-wayBill_scan {
+        .flex-x(flex-end, center);
+        width: 52px;
+        height: 90px;
+        box-sizing: border-box;
+
+        .page-wayBill_scan_icon {
+          width: 32px;
+          height: 32px;
+          background: url("@{images}/scan_icon.png") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+
+    // 目的地部分
+    .page-wayBill_target {
+      .flex-x(space-between, center);
+      width: 100%;
+      height: 90px;
+      border-bottom: 2px solid @public_line-color;
+      font-size: 28px;
+      box-sizing: border-box;
+
+      > div {
+        .flex-x(space-between, center);
+        height: 40px;
+        flex: 1;
+        box-sizing: border-box;
+
+        > div {
+          &:nth-of-type(1) {
+            color: #333333;
+          }
+          &:nth-of-type(2) {
+            flex: 1;
+            .flex-x(flex-end,center);
+            height: 90px;
+            // flex与ellipsis冲突，需要再包一层
+            p{
+              width: 160px;
+              text-align: right;
+              color: #cccccc;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;
+              &.hasChoose{
+                color: @hasChooseColor;
+              }
+            }
+          }
+          &:nth-of-type(3) {
+            .flex-x(flex-end, center);
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+
+            > span {
+              display: block;
+              width: 8px;
+              height: 16px;
+              background: url("@{images}/right_icon.png") no-repeat center center;
+              background-size: cover;
+            }
+          }
+        }
+      }
+      // 目的地
+      .page-wayBill_target_place {
+        padding-right: 30px;
+        border-right: 2px solid @public_line-color;
+        box-sizing: border-box;
+      }
+      // 目的网点
+      .page-wayBill_target_dot {
+        .flex-x(flex-start, center);
+        height: 100%;
+        padding-left: 30px;
+        color: #cccccc;
+        box-sizing: border-box;
+
+        .page-wayBill_target_dot_unit {}
+
+        .page-wayBill_target_dot_text {
+          height: 100%;
+          flex: 1;
+
+          > div {
+            width: 160px;
+            height: 100%;
+            line-height: 90px;
+            text-align: right;
+            .spot();
+          }
+        }
+      }
+      .page-wayBill_target_dot_active {
+        color: #333333;
+      }
+    }
+
+    // 收货 && 发货部分
+    .page-wayBill_receive_deliver {
+      .flex-y(flex-start, center);
+      position: relative;
+      width: 100%;
+     //  min-height: 244px;
+      background: #ffffff;
+
+      .receive-deliver_item {
+        .flex-x(space-between, center);
+        min-height: 122px;
+        width: 100%;
+        flex: 1;
+
+        // 收发货人默认样式
+        .receive-deliver_item_default {
+          .flex-x(flex-start, center);
+            flex: 1;
+            box-sizing: border-box;
+            margin-left: 30px;
+            padding-right: 30px;
+            min-height: 122px;
+            font-size: 28px;
+            color: #cccccc;
+            border-bottom: 2px solid @public_line-color;
+        }
+        // 收发货人选择后样式
+        .receive-deliver_item_active {
+          .flex-y(flex-start, flex-start);
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0px 30px;
+            min-height: 122px;
+            font-size: 28px;
+            line-height: 56px;
+            color: #cccccc;
+
+            > div {
+              flex: 1;
+              .flex-x(flex-start, center);
+
+              &:nth-of-type(1) {
+                font-size: 28px;
+                color: #333333;
+
+                > span {
+                  &:nth-of-type(1) {
+                    margin-right: 24px;
+                  }
+                }
+              }
+
+              &:nth-of-type(2) {
+                height: 100%;
+                .spot-2();
+                font-size: 28px;
+                line-height: 32px;
+                color: #999999;
+                text-align: left;
+              }
+            }
+        }
+
+        .receive-deliver_item_right_icon {
+          .flex-x(center, center);
+          width: 8px;
+          height: 16px;
+          background: url("@{images}/right_icon.png") no-repeat center center;
+          background-size: cover;
+        }
+
+        &:nth-of-type(1) {
+          .receive-deliver_item_main_icon {
+            .flex-x(center, center);
+            width: 48px;
+            height: 48px;
+            background: url("@{images}/send_icon.png") no-repeat center center;
+            background-size: cover;
+          }
+        }
+        &:nth-of-type(2) {
+          .receive-deliver_item_main_icon {
+            .flex-x(center, center);
+            width: 48px;
+            height: 48px;
+            background: url("@{images}/get_icon.png") no-repeat center center;
+            background-size: cover;
+          }
+        }
+
+
+      }
+
+      .receive-deliver_line {
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        margin-top: -23px;
+        width: 2px;
+        height: 46px;
+        background: #eeeeee;
+      }
+    }
+
+    // 配送方式 - 等通知 - 运输方式 部分 pubic cell
+    .receive-deliver_public_cell {
+      .flex-x(space-between, center);
+      width: 100%;
+      height: 90px;
+      box-sizing: border-box;
+      border-bottom: 2px solid @public_line-color;
+      background: #ffffff;
+      font-size: 28px;
+      color: #333333;
+
+      // 等通知样式重置
+      .inline-x-switch {
+        width: 90px;
+        height: 48px;
+
+
+        &::before {
+          width: 90px;
+          height: 48px;
+          background: #eeeeee;
+        }
+
+        &::after {
+          width: 44px;
+          height: 44px;
+        }
+      }
+
+      // 货物信息 default-show
+      .public-cell_default {
+        color: #cccccc;
+      }
+
+      > div {
+        height: 100%;
+        box-sizing: border-box;
+
+        &:nth-of-type(1) {
+          .flex-x(flex-start, center);
+          width: 144px;
+          height: 100%;
+        }
+        &:nth-of-type(2) {
+          .flex-x(flex-end, center);
+          flex: 1;
+          height: 100%;
+        }
+        &:nth-of-type(3) {
+          .flex-x(flex-end, center);
+          height: 100%;
+          margin-left: 10px;
+
+          > span {
+            display: block;
+            width: 8px;
+            height: 16px;
+            background: url("@{images}/right_icon.png") no-repeat center center;
+            background-size: cover;
+          }
+        }
+      }
+    }
+
+    // 费用信息部分
+    .cost-info_list {
+      .cost-info_public_cell {
+        .flex-x(space-between, center);
+          width: 100%;
+          height: 90px;
+          box-sizing: border-box;
+          border-bottom: 2px solid @public_line-color;
+          background: #ffffff;
+          font-size: 28px;
+          color: #333333;
+
+          // 费用信息 default-show
+          .public-cell_default {
+            color: #cccccc;
+          }
+
+          // 付款方式
+          .public-cell_type {
+            .flex-x(space-between, center);
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 28px;
+            color: #333333;
+
+            > div {
+              .flex-x(flex-end, center);
+              height: 100%;
+            }
+
+            .selected-val {
+              flex: 1;
+              margin-right: 10px;
+            }
+
+            .is-icon {
+              display: block;
+              width: 8px;
+              height: 16px;
+              background: url("@{images}/right_icon.png") no-repeat center center;
+              background-size: cover;
+            }
+          }
+
+          > div {
+            height: 100%;
+            box-sizing: border-box;
+
+            &:nth-of-type(2) {
+              .flex-x(flex-start, center);
+              width: 144px;
+              height: 100%;
+            }
+            &:nth-of-type(2) {
+              .flex-x(flex-end, center);
+              flex: 1;
+              height: 100%;
+              box-sizing: border-box;
+
+              // 代收货款input
+              > input {
+                height: 100%;
+                flex: 1;
+                text-align: right;
+                border: none;
+                font-size: 28px;
+              }
+              // 代收货款span
+              > span {
+                margin-left: 10px;
+                font-size: 28px;
+                color: #666666;
+              }
+              // 基本运费
+              > p {
+                .flex-x(space-between, center);
+                height: 100%;
+                box-sizing: border-box;
+                flex: 1;
+
+                > span {
+                  &:nth-of-type(1) {
+                    display: block;
+                    width: 120px;
+                  }
+                  &:nth-of-type(2) {
+                    display: block;
+                    width: 28px;
+                    // margin-left: 24px;
+                  }
+                }
+
+                > input {
+                  height: 100%;
+                  width: 0px;
+                  box-sizing: border-box;
+                  flex: 1;
+                  padding: 0px 20px;
+                  font-size: 28px;
+                  border: none;
+                  text-align: right;
+                }
+
+                &:nth-of-type(1) {
+                  position: relative;
+                  padding-right: 30px;
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    right: -2px;
+                    height: 0px;
+                    display: block;
+                    width: 4px;
+                    height: 44px;
+                    background: @public_line-color;
+                  }
+                }
+
+                &:nth-of-type(2) {
+                  padding-left: 30px;
+                }
+              }
+            }
+          }
+      }
+    }
+
+    // 备注部分
+    .remarks {
+      .flex-x(space-between, center);
+      position: relative;
+      left: -30px;
+      width: 100vw;
+      height: 90px;
+      box-sizing: content-box;
+      border-top: 16px solid #f2f1f6;
+      border-bottom: 16px solid #f2f1f6;
+      font-size: 28px;
+      color: #333333;
+
+      > div {
+        margin-left: 30px;
+      }
+
+      > input {
+        margin-right: 30px;
+        font-size: 28px;
+        height: 100%;
+        flex: 1;
+        box-sizing: border-box;
+        text-align: right;
+        margin-left: 20px;
+        border: none;
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* 二级路由过度动画 start */
+  .lr-enter {
+    transform: translateX(100%);
+  }
+  .lr-enter-to {
+    transform: translateX(0%);
+  }
+  .lr-leave {
+    transform: translateX(0%);
+  }
+  .lr-leave-to {
+    transform: translateX(100%);
+  }
+  .lr-enter-active, .lr-leave-active {
+    transition: .2s;
+  }
+  /* 二级路由过度动画 end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 运输方式 popup 内容部分
+  .transport-popup_content {
+    width: 100%;
+    background: #ffffff;
+
+    .transport-popup_title {
+      .flex-x(center, center);
+      width: 100%;
+      height: 90px;
+      box-sizing: border-box;
+      border-bottom: 2px solid @public_line-color;
+      font-size: 28px;
+      color: #999999;
+    }
+
+    .transport-popup_item {
+      .flex-x(center, center);
+      width: 100%;
+      height: 90px;
+      box-sizing: border-box;
+      border-bottom: 2px solid @public_line-color;
+      font-size: 32px;
+      color: #333333;
+    }
+
+    .transport-popup_item_cancel {
+      font-size: 32px;
+      color: #666666;
+    }
+  }
+}
+
+
+

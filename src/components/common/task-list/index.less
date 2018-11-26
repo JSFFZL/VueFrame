@@ -1,0 +1,199 @@
+@import "../../../less/core.less";
+@images: "../../../assets/images";
+
+.fw-task_list {
+  width: 100%;
+  // 渲染列表
+  .task-list {
+    width: 100%;
+    height: 100%;
+    background: #f2f1f6;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .task-item {
+      width: 100%;
+      background: #ffffff;
+      box-sizing: border-box;
+      padding: 0px 30px;
+      margin-bottom: 10px;
+
+      // top
+      .task-item_top {
+        .flex-x(space-between, center);
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #EBE9F1;
+
+        .task-item_left {
+          .flex-x(flex-start, center);
+
+          > span {
+            font-size: 28px;
+            &:nth-of-type(1) {
+              margin-right: 16px;
+            }
+            &:nth-of-type(2) {
+
+            }
+
+            &:nth-of-type(3) {
+              display: block;
+              width: 32px;
+              height: 32px;
+              background: url("@{images}/extract_icon.png") no-repeat center center;
+              background-size: cover;
+              margin-left: 30px;
+            }
+          }
+        }
+
+        .task-item_right {
+          font-size: 24px;
+          color: #FE9B4A;
+        }
+      }
+
+      // center
+      .task-item_center {
+        .flex-x(space-between, center);
+        width: 100%;
+        height: 160px;
+        border-bottom: 1px solid #EBE9F1;
+
+        .task-item_left {
+          .flex-x(flex-start, center);
+          width: 510px;
+          height: 100%;
+
+          .task-item_left_icon {
+            .flex-x();
+            width: 40px;
+            height: 120px;
+
+            > span {
+              display: block;
+              width: 20px;
+              height: 28px;
+              margin-top: 4px;
+              background: url("@{images}/address_icon.png") no-repeat center center;
+              background-size: cover;
+            }
+          }
+
+          .task-item_left_content {
+            .flex-y(space-between, flex-start);
+            width: 470px;
+            height: 120px;
+
+            > p {
+              width: 100%;
+              .spot();
+            }
+
+            .left-content_address {
+              font-size: 28px;
+              color: #333333;
+            }
+
+            .left-content_name {
+              font-size: 24px;
+              color: #cccccc;
+              > span {
+                &:nth-of-type(1) {
+                  margin-right: 14px;
+                }
+              }
+            }
+
+            .left-content_info {
+              font-size: 28px;
+              color: #666666;
+            }
+          }
+        }
+
+        .task-item_right {
+          .flex-x(flex-end, center);
+          flex: 1;
+          height: 100%;
+
+          .task-item_right_content {
+            .flex-y(center, flex-end);
+            width: 160px;
+            height: 160px;
+            margin-left: 20px;
+            box-sizing: border-box;
+
+
+            .right-content_price {
+              width: 100%;
+              font-size: 32px;
+              color: #CC3333;
+              text-align: right;
+              .spot();
+              > span {
+                font-size: 24px;
+              }
+            }
+
+            .right-content_unit {
+              color: #999999;
+              font-size: 24px;
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+      // bottom
+      .task-item_bottom {
+        .flex-x(space-between, center);
+        width: 100%;
+        height: 80px;
+        // 预约时间
+        .item-bottom_time {
+          color: #666666;
+          font-size: 24px;
+
+          > span {
+            &:nth-of-type(1) {
+              margin-right: 8px;
+            }
+          }
+        }
+        // 电话icon
+        .item-bottom_phoneicon {
+          .flex-x(flex-start, center);
+          flex: 1;
+          box-sizing: border-box;
+          margin-left: 20px;
+          width: 80px;
+          height: 80px;
+
+          > p {
+            .flex-x(flex-start, center);
+            width: 80px;
+            height: 80px;
+
+            > span {
+              width: 30px;
+              height: 30px;
+              background: url("@{images}/phone.png") no-repeat center center;
+              background-size: cover;
+            }
+          }
+        }
+        // 按钮
+        .item-bottom_button {
+          .flex-x(center, center);
+          width: 152px;
+          height: 52px;
+          color: #ffffff;
+          font-size: 28px;
+          background: linear-gradient(left, #caa5ff, #4f8fff);
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

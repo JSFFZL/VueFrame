@@ -1,0 +1,44 @@
+@import '../../../less/core.less';
+
+.fw-cell-title {
+  .flex-x(space-between, center);
+  position: relative;
+  left: -30px;
+  width: 750px;
+  height: 64px;
+  background: #f2f1f6;
+  box-sizing: border-box;
+  padding: 0px 30px;
+
+  > div {
+    color: #666666;
+  }
+
+
+  .fw-cell-title_icon {
+    width: 4px;
+    height: 28px;
+    background: linear-gradient(bottom, #caa5ff, #4f8fff);
+  }
+
+  .fw-cell-title_title {
+    .flex-x(flex-start, center);
+    height: 100%;
+    flex: 1;
+    font-size: 28px;
+    margin-left: 12px;
+  }
+
+  .fw-cell-title_describe {
+    color: #999999;
+    font-size: 28px;
+    margin-left: 10px;
+  }
+
+  .fw-cell-title_subtitle {
+    .flex-x(flex-end, center);
+    min-width: 80px;
+    height: 100%;
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,43 @@
+@import '../../../less/core.less';
+
+.fw-gird {
+  .flex-x(space-between, center);
+  width: 100%;
+  min-height: 94px;
+  box-sizing: border-box;
+  border-bottom: 2px solid @public_line-color;
+  padding: 0px 30px;
+  font-size: 28px;
+  color: #333333;
+
+  > div {
+    .flex-x(space-between, center);
+    height: 94px;
+    flex: 1;
+    box-sizing: border-box;
+
+    > .key {
+      width: 60px;
+    }
+
+    > input {
+      width: 210px;
+      height: 94px;
+      box-sizing: border-box;
+      font-size: 28px;
+      text-align: right;
+      border: none;
+    }
+
+    > .nuit {
+      font-size: 28px;
+      color: #666666;
+    }
+  }
+  .volume-weight_left {
+
+  }
+  .volume-weight_right {
+    padding-left: 30px;
+  }
+}

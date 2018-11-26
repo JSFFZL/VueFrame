@@ -1,0 +1,41 @@
+@import '../../../less/core.less';
+
+.fw-picker {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .position {
+    position: absolute;
+    left: 0px;
+    top: 94px;
+    width: 100%;
+    height: 94px;
+    background: #eeecff;
+  }
+
+  .fw-scroll-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+
+
+    .fw-scroll_list {
+      margin-top: 100px;
+      width: 100%;
+      box-sizing: border-box;
+
+      .fw-scroll_item {
+        .flex-x(center, center);
+        width: 100%;
+        height: 94px;
+        box-sizing: border-box;
+        color: #999999;
+      }
+
+      .fw-scroll_item_active {
+        color: #333333;
+      }
+    }
+  }
+}

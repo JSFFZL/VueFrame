@@ -1,0 +1,28 @@
+// flex
+.flex-x (@justify: flex-start, @align: flex-start) {
+  display: flex;
+  justify-content: @justify;
+  align-items: @align;
+}
+// flex
+.flex-y (@justify: flex-start, @align: flex-start) {
+  display: flex;
+  flex-direction: column;
+  justify-content: @justify;
+  align-items: @align;
+}
+// 超出部分省略号
+.spot () {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// 超出部分省略号
+.spot-2 () {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break:break-all;
+}

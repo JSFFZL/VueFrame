@@ -1,0 +1,66 @@
+@import '../../../less/core.less';
+@images: '../../../assets/images';
+
+.bg-color{
+    background-color: #fff;
+    li{
+        font-size: 28px;
+        padding: 20px 0;
+        border:#eee solid 1px;
+    }
+}
+/* 列表容器 */ 
+.list-wrapper {
+    position: fixed;  
+    z-index: 1;  
+    top: 55px;  
+    bottom: 50px;  
+    left: 0;  
+    width: 100%;  
+    background: #ccc;  
+    overflow: hidden;  
+}
+.list-wrapper .list-item .text{
+    position: relative;
+    flex: 1;
+    padding-left: 10px;
+}
+
+.list-wrapper .list-item .text h2{
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(7, 17, 27);
+}
+
+.list-wrapper .list-item .text span{
+    position: absolute;
+    bottom: 20px;
+    color: rgba(7, 17, 27, 0.7);
+}
+
+/* 下拉、上拉提示信息 */
+.top-tip{
+    position: absolute;  
+    top: -40px;  
+    left: 0;
+    z-index: 1;  
+    width: 100%;  
+    height:40px;  
+    line-height:40px;  
+    text-align:center;
+    color: #555;
+} 
+  
+.bottom-tip{
+    position: absolute;  
+    bottom: -40px;  
+    left: 0;
+    z-index: 1;  
+    width: 100%;  
+    height:40px;  
+    line-height:40px;  
+    text-align:center;
+    color: #555;
+}
+
+

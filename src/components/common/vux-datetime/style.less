@@ -1,0 +1,143 @@
+@customHeight: 46*2px!important;
+// @customHeight: 32*2px!important;
+
+.dp-mask.fw-dp-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  opacity: 0;
+  // transition: opacity 0.2s ease-in;
+  transition: transform 0 ease!important;
+  background-color: #000;
+  z-index: 99;
+}
+.dp-container.fw-start-end-date-vuxDate-container{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: -26px!important;
+  z-index: 100;
+  background-color: #fff;
+  display: none;
+  // transition: transform 0.3s ease;
+  transition: transform 0 ease!important;
+  transform: translateY(100%);
+  &.vux-datetime-view {
+    position: static;
+    transition: none;
+    & .dp-header {
+      display: none;
+    }
+  }
+  .vux-datetime-clear {
+    text-align: center;
+  }
+  .scroller-component {
+    display: block;
+    position: relative;
+    height: 238px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .scroller-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .scroller-mask {
+    position: absolute;
+    left: 0;
+    top: -20px;
+    height: 104.5%;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 3;
+    background-image:
+      linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6)),
+      linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+    background-position: top bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .scroller-item {
+    text-align: center;
+    font-size: 16px;
+    height: @customHeight;
+    line-height: @customHeight;
+    color: #000;
+  }
+  
+  
+  .dp-header {
+    display: flex;
+    width: 100%;
+    box-align: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #e7e7e7, #e7e7e7, transparent, transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .dp-content {
+    display: flex;
+    width: 100%;
+    box-align: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .dp-header .dp-item,
+  .dp-content .dp-item {
+    box-sizing: border-box;
+    flex: 1;
+  }
+  .vux-datetime-cancel {
+    text-align: left;
+    padding-left: 15px;
+  }
+  .vux-datetime-confirm {
+    text-align: right;
+    padding-right: 15px;
+  }
+  .vux-datetime {
+    color: #000;
+  }
+  .vux-datetime .vux-input-icon {
+    float: right;
+  }
+  .vux-cell-primary {
+    flex: 1;
+  }
+  .vux-datetime-value{
+    .vux-cell-placeholder{
+      font-size: 48px;
+    }
+  }
+  // 修改样式
+  .dp-header {
+    display: none;
+  }
+  .scroller-indicator {
+    width: 101%;
+    height: @customHeight;
+    position: absolute;
+    left: 0;
+    top: 182px!important;
+    z-index: -1;
+    background-image: none!important;
+      // linear-gradient(to bottom, #d0d0d0, #d0d0d0, transparent, transparent),
+      // linear-gradient(to top, #d0d0d0, #d0d0d0, transparent, transparent);
+    background-color: #e7ebfe!important;
+    background-position: 0% 0%!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+  }
+}

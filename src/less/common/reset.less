@@ -1,0 +1,204 @@
+html,
+  body,
+  div,
+  span,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  abbr,
+  address,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  samp,
+  small,
+  strong,
+  sub,
+  sup,
+  var,
+  b,
+  i,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr, th,
+  td,
+  article,
+  aside,
+  figure,
+  footer,
+  header,
+  menu,
+  nav,
+  section,
+  time,
+  mark,
+  audio,
+  video,
+  details,
+summary,
+* {
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation; // 浏览器只允许进行滚动和持续缩放操作
+  /* 禁止ios点击阴影闪烁 */
+  -webkit-tap-highlight-color: transparent;
+  /* 解决ios 上边框阴影 */
+  -webkit-appearance: none;
+  /* 禁用Webkit内核浏览器的文字大小调整功能 */
+  -webkit-text-size-adjust: none;
+
+  /* 禁止选中 */
+  // -webkit-touch-callout: none; /* iOS Safari */
+  // -webkit-user-select: none; /* Chrome/Safari/Opera */
+  // -khtml-user-select: none; /* Konqueror */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* Internet Explorer/Edge */
+  // user-select: none; /* Non-prefixed version, currently not supported by any browser */
+
+  /* 禁止选中 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+
+  /* 禁止选中 兼容input 无法输入 */
+  &:not(input,textarea) {
+    -webkit-user-select: none;
+  }
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+html {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  font-family:"Tahoma","Arial","Roboto","Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+}
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+img {
+  border: none;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  outline: none;
+  /*设置的tap  A标签的时候出现的黑色高亮*/
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:active {
+  outline: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+em {
+  font-style: normal;
+}
+
+input {
+  outline: none;
+}
+
+input[type="text"],
+input[type="tel"] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/* 去除iphone ipad 设备默认按钮样式 */
+input[type="button"], input[type="submit"], input[type="reset"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
+
+
+
+#app {
+  // inline loading style reset
+  .m-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -10px;
+    // text
+    .m-loading_text {
+      position: relative;
+      left: 80px;
+    }
+    // inlineloading icon
+    .weui-loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -25px;
+      margin-top: -25px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

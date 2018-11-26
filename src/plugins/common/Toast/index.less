@@ -1,0 +1,78 @@
+@import '../../../less/core.less';
+
+.toast-wrap {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 503;
+
+  .toast-wrap_content {
+      max-width: 600px;
+      padding: 30px 40px;
+      box-sizing: border-box;
+      background: #333333;
+      opacity: 0.8;
+      text-align: center;
+      line-height: 40px;
+      color: #fff;
+      font-size: 28px;
+      color: #fff;
+      border-radius: 8px;
+      z-index: 501;
+
+      // inline loading
+      .weui-loading {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+  }
+}
+
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fadeIn-enter,
+.fadeIn-leave-active {
+    opacity: 0;
+}
+
+.translate-top-enter-active,
+.translate-top-leave-active {
+    transition: all 0.3s cubic-bezier(0.36, 0.66, 0.04, 1);
+}
+
+.translate-top-enter,
+.translate-top-leave-active {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+.translate-middle-enter-active,
+.translate-middle-leave-active {
+    transition: all 0.3s cubic-bezier(0.36, 0.66, 0.04, 1);
+}
+
+.translate-middle-enter,
+.translate-middle-leave-active {
+    transform: translateY(80%);
+    opacity: 0;
+}
+
+.translate-bottom-enter-active,
+.translate-bottom-leave-active {
+    transition: all 0.3s cubic-bezier(0.36, 0.66, 0.04, 1);
+}
+
+.translate-bottom-enter,
+.translate-bottom-leave-active {
+    transform: translateY(100%);
+    opacity: 0;
+}

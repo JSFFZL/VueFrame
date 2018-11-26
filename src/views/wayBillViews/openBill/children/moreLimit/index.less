@@ -1,0 +1,204 @@
+@import '../../../../../less/core.less';
+@images: '../../../../../assets/images';
+
+.page-more_limit {
+  .flex-y(flex-start, center);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f2f1f6;
+
+  // 内容主体
+  .page-more_content {
+    width: 100%;
+    flex: 1;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 16px;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 0px 30px;
+
+    // 回单部分
+    .return-require {
+      .page-more_item {
+        .flex-x(space-between, center);
+        width: 100%;
+        height: 90px;
+        box-sizing: border-box;
+        border-bottom: 2px solid @public_line-color;
+        font-size: 28px;
+        color: #333333;
+      }
+      // 回单要求
+      .require {
+        .page-more_item_content {
+          .flex-x(flex-end, center);
+          flex: 1;
+          font-size: 28px;
+          color: #cccccc;
+        }
+        .page-more_item_content_active {
+          color: #333333;
+        }
+        .page-more_item_icon {
+          .flex-x(flex-end, center);
+          margin-left: 12px;
+          > span {
+            width: 8px;
+            height: 16px;
+            background: url("@{images}/right_icon.png") no-repeat center center;
+            background-size: cover;
+          }
+        }
+      }
+      // 回单编号
+      .code {
+        > input {
+          flex: 1;
+          height: 100%;
+          font-size: 28px;
+          text-align: right;
+          border: none;
+        }
+      }
+      // 回单份数
+      .number {
+        > input {
+          flex: 1;
+          height: 100%;
+          box-sizing: border-box;
+          margin-right: 12px;
+          font-size: 28px;
+          text-align: right;
+          border: none;
+        }
+
+        .unit {
+          color: #666666;
+        }
+      }
+    }
+
+    // 特殊要求部分 (单选)
+    .require-single {
+      .flex-x(space-between, center);
+      width: 100%;
+      height: 120px;
+      background: #ffffff;
+      box-sizing: border-box;
+
+      .require-single_item {
+        .flex-x(center, center);
+        width: 212px;
+        height: 64px;
+        box-sizing: border-box;
+        border: 1px solid rgba(187,187,187, .5);
+        border-radius: 4px;
+        font-size: 28px;
+        color: #333333;
+        overflow: hidden;
+      }
+      .require-single_item_active {
+        color: #ffffff;
+        background: linear-gradient(left, #caa5ff, #4f8fff);
+        border: none;
+      }
+    }
+
+    // 其他部分 (多选)
+    .require-check_list {
+      width: 100%;
+      background: #ffffff;
+
+
+
+      .require-check_item {
+        .flex-x(space-between, center);
+        width: 100%;
+        height: 90px;
+        box-sizing: border-box;
+        border-bottom: 2px solid @public_line-color;
+
+        &:nth-last-of-type(1) {
+          border: none;
+        }
+
+        .require-check_item_text {
+          font-size: 28px;
+          color: #333333;
+        }
+
+        .require-check_item_text_active {
+          font-size: 32px;
+          font-weight: 700;
+          color: #317CC3;
+        }
+
+        .require-check_item_icon {
+          width: 28px;
+          height: 20px;
+          background: url("@{images}/yes_icon.png") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  // 底部
+  .page-more_footer {
+    .flex-x(flex-start, center);
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+
+    > div {
+      .flex-x(center, center);
+      flex: 1;
+      height: 100%;
+      font-size: 28px;
+
+      &:nth-of-type(1) {
+        color: #333333;
+        background: #ffffff;
+      }
+
+      &:nth-of-type(2) {
+        color: #ffffff;
+        background: linear-gradient(left, #caa5ff, #4f8fff);
+      }
+    }
+  }
+}
+
+
+// 回单类型 popup 部分
+.return-popup_content {
+  width: 100%;
+  background: #ffffff;
+
+  .return-popup_title {
+    .flex-x(center, center);
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
+    border-bottom: 2px solid @public_line-color;
+    font-size: 28px;
+    color: #999999;
+  }
+
+  .return-popup_item {
+    .flex-x(center, center);
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
+    border-bottom: 2px solid @public_line-color;
+    font-size: 32px;
+    color: #333333;
+  }
+
+  .return-popup_item_cancel {
+    font-size: 32px;
+    color: #666666;
+  }
+}

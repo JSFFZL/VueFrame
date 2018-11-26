@@ -1,0 +1,22 @@
+@import '../../../less/core.less';
+
+.inline-loading_wrap {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  font-size: 24px;
+
+  .inline-loading_content {
+    width: 70px;
+    height: 70px;
+    margin-right: -10px;
+    background: url("@{loadingurl}/inline-loading-icon.gif") no-repeat center center;
+    background-size: cover;
+  }
+}
